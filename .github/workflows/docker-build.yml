@@ -1,0 +1,36 @@
+name: Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push backend image
+        run: |
+          docker build -t yauchiwai126/2025cloud:backend ./backend
+          docker push yauchiwai126/2025cloud:backend
+
+      - name: Build and push backend-django image
+        run: |
+          docker build -t yauchiwai126/2025cloud:backend-django ./backend
+          docker push yauchiwai126/2025cloud:backend-django
+
+      - name: Build and push frontend image
+        run: |
+          docker build -t yauchiwai126/2025cloud:frontend ./frontend
+          docker push yauchiwai126/2025cloud:frontend
