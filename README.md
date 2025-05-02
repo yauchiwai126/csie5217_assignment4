@@ -32,3 +32,12 @@
 
 # 文件詳述
 ## README以圖文的方式描述目前專案自動化產生Container Image的邏輯，以及Tag的選擇邏輯
+### 自動化產生Container Image的邏輯
+![GitHub Action](/Users/marcoyau/Desktop/螢幕截圖 2025-05-02 13.09.28.png)
+1. 當任何一個Branch在發起Push或者Pull Request的時候，GitHub Action便會運行(第3-10行)。
+2. 登入Docker Hub(第20-24行)。
+3. 建立Docker Image(第28、33、38行)。
+4. 把Docker Image推送到Docker Hub(第29、34、39行)。
+### Tag的選擇邏輯
+- Tag是根據前端(frontend)及後端(backend)分開建立的。
+- 如果裡面有其他特別的元件則另外在前/後端後再加上該元件的名稱(backend-django)。
