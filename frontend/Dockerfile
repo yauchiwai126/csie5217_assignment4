@@ -5,7 +5,7 @@ FROM python:latest
 WORKDIR /app
 
 # Copy requirements and install dependencies
-COPY requirements.txt .
+COPY requirements2.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the Django project files
