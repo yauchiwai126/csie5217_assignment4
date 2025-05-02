@@ -33,7 +33,7 @@
 # 文件詳述
 ## README以圖文的方式描述目前專案自動化產生Container Image的邏輯，以及Tag的選擇邏輯
 ### 自動化產生Container Image的邏輯
-![GitHubAction](GitHub Action.png)
+![GitHubAction](/GitHub%20Action.png)
 1. 當任何一個Branch在發起Push或者Pull Request的時候，GitHub Action便會運行(第3-10行)。
 2. 登入Docker Hub(第20-24行)。
 3. 建立Docker Image(第28、33、38行)。
